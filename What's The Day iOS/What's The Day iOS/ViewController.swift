@@ -100,9 +100,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         closeKeyboard()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        //UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
     
     override func viewDidLoad() {

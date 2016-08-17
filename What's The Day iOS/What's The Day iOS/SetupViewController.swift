@@ -60,7 +60,6 @@ class SetupViewController: UIViewController {
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
         navigationItem.leftBarButtonItem = backButton
         // style next button
-        //nextButton.backgroundColor = UIColor.clearColor()
         nextButton.layer.cornerRadius = 10
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor.blackColor().CGColor
