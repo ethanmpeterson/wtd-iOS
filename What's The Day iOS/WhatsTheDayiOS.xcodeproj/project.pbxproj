@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5300131A1D5A4ABD007D88BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530013191D5A4ABD007D88BB /* AppDelegate.swift */; };
+		5300131C1D5A4ABD007D88BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300131B1D5A4ABD007D88BB /* ViewController.swift */; };
+		5300131F1D5A4ABD007D88BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5300131D1D5A4ABD007D88BB /* Main.storyboard */; };
+		530013211D5A4ABD007D88BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530013201D5A4ABD007D88BB /* Assets.xcassets */; };
+		530013241D5A4ABD007D88BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530013221D5A4ABD007D88BB /* LaunchScreen.storyboard */; };
+		5300132C1D5BF2BC007D88BB /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300132B1D5BF2BC007D88BB /* SetupViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		533124EE1D63A7ED000C231E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533124ED1D63A7ED000C231E /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		530013161D5A4ABD007D88BB /* WhatsTheDayiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheDayiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		530013191D5A4ABD007D88BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5300131B1D5A4ABD007D88BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5300131E1D5A4ABD007D88BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		530013201D5A4ABD007D88BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		530013231D5A4ABD007D88BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		530013251D5A4ABD007D88BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5300132B1D5BF2BC007D88BB /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		533124ED1D63A7ED000C231E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		530013131D5A4ABD007D88BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5300130D1D5A4ABD007D88BB = {
+			isa = PBXGroup;
+			children = (
+				530013181D5A4ABD007D88BB /* WhatsTheDayiOS */,
+				530013171D5A4ABD007D88BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		530013171D5A4ABD007D88BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				530013161D5A4ABD007D88BB /* WhatsTheDayiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		530013181D5A4ABD007D88BB /* WhatsTheDayiOS */ = {
+			isa = PBXGroup;
+			children = (
+				530013191D5A4ABD007D88BB /* AppDelegate.swift */,
+				5300131B1D5A4ABD007D88BB /* ViewController.swift */,
+				5300131D1D5A4ABD007D88BB /* Main.storyboard */,
+				533124ED1D63A7ED000C231E /* SettingsViewController.swift */,
+				5300132B1D5BF2BC007D88BB /* SetupViewController.swift */,
+				530013201D5A4ABD007D88BB /* Assets.xcassets */,
+				530013221D5A4ABD007D88BB /* LaunchScreen.storyboard */,
+				530013251D5A4ABD007D88BB /* Info.plist */,
+			);
+			name = WhatsTheDayiOS;
+			path = "What's The Day iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		530013151D5A4ABD007D88BB /* WhatsTheDayiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 530013281D5A4ABD007D88BB /* Build configuration list for PBXNativeTarget "WhatsTheDayiOS" */;
+			buildPhases = (
+				530013121D5A4ABD007D88BB /* Sources */,
+				530013131D5A4ABD007D88BB /* Frameworks */,
+				530013141D5A4ABD007D88BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsTheDayiOS;
+			productName = "What's The Day iOS";
+			productReference = 530013161D5A4ABD007D88BB /* WhatsTheDayiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5300130E1D5A4ABD007D88BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Wojak;
+				TargetAttributes = {
+					530013151D5A4ABD007D88BB = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 530013111D5A4ABD007D88BB /* Build configuration list for PBXProject "WhatsTheDayiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5300130D1D5A4ABD007D88BB;
+			productRefGroup = 530013171D5A4ABD007D88BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				530013151D5A4ABD007D88BB /* WhatsTheDayiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		530013141D5A4ABD007D88BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				530013241D5A4ABD007D88BB /* LaunchScreen.storyboard in Resources */,
+				530013211D5A4ABD007D88BB /* Assets.xcassets in Resources */,
+				5300131F1D5A4ABD007D88BB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		530013121D5A4ABD007D88BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5300131C1D5A4ABD007D88BB /* ViewController.swift in Sources */,
+				5300132C1D5BF2BC007D88BB /* SetupViewController.swift in Sources */,
+				5300131A1D5A4ABD007D88BB /* AppDelegate.swift in Sources */,
+				533124EE1D63A7ED000C231E /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5300131D1D5A4ABD007D88BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5300131E1D5A4ABD007D88BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		530013221D5A4ABD007D88BB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				530013231D5A4ABD007D88BB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		530013261D5A4ABD007D88BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		530013271D5A4ABD007D88BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		530013291D5A4ABD007D88BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "What's The Day iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.petetech.What-s-The-Day-iOS";
+				PRODUCT_NAME = WhatsTheDayiOS;
+			};
+			name = Debug;
+		};
+		5300132A1D5A4ABD007D88BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "What's The Day iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.petetech.What-s-The-Day-iOS";
+				PRODUCT_NAME = WhatsTheDayiOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		530013111D5A4ABD007D88BB /* Build configuration list for PBXProject "WhatsTheDayiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				530013261D5A4ABD007D88BB /* Debug */,
+				530013271D5A4ABD007D88BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		530013281D5A4ABD007D88BB /* Build configuration list for PBXNativeTarget "WhatsTheDayiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				530013291D5A4ABD007D88BB /* Debug */,
+				5300132A1D5A4ABD007D88BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5300130E1D5A4ABD007D88BB /* Project object */;
+}

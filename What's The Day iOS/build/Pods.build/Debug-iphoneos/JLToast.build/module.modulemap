@@ -1,0 +1,10 @@
+framework module JLToast {
+  umbrella header "JLToast-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module JLToast.Swift {
+    header "JLToast-Swift.h"
+}

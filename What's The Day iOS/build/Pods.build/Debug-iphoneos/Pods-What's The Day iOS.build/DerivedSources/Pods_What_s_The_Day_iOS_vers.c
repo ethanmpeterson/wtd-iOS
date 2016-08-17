@@ -1,0 +1,1 @@
+ const unsigned char Pods_What_s_The_Day_iOSVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Pods_What_s_The_Day_iOS  PROJECT:Pods-1" "\n"; const double Pods_What_s_The_Day_iOSVersionNumber __attribute__ ((used)) = (double)1.;

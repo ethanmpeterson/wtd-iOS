@@ -1,0 +1,6 @@
+framework module Pods_What_s_The_Day_iOS {
+  umbrella header "Pods-What's The Day iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
