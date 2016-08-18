@@ -69,6 +69,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return day
     }
     
+//    func getMonth() -> String {
+//        
+//    }
+//    
     func dayNum() -> Int {
         return schoolYear[month() - 1][day()]
     }
@@ -118,11 +122,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         // Do any additional setup after loading the view, typically from a nib.
+        p1Text.layer.backgroundColor  = UIColor.redColor().CGColor
+        p1Text.layer.cornerRadius = 5
+        p2Text.layer.backgroundColor  = UIColor.redColor().CGColor
+        p2Text.layer.cornerRadius = 5
         dateDisplay.delegate = self
         if (dayNum() == 9) {
             dayDisplay.text = "Day: H"
         } else {
-            dayDisplay.text = "Day: " + String(dayNum())
+            dayDisplay.text = "Day: \(dayNum())"
         }
         
     }
