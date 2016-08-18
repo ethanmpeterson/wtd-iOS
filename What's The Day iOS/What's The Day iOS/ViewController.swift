@@ -26,6 +26,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         [9, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],  // December
     ] //same array that is in the gecko firmware that is filled with the day calendar for 2015-2016 school year
 
+    @IBOutlet var p1Room: UILabel!
+    @IBOutlet var p2Room: UILabel!
+    @IBOutlet var p3Room: UILabel!
+    @IBOutlet var p4Room: UILabel!
     @IBOutlet var p1Text: UILabel!
     @IBOutlet var p2Text: UILabel!
     @IBOutlet var p3Text: UILabel!
@@ -77,9 +81,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return day
     }
     
-//    func getMonth() -> String {
-//        
-//    }
 
     func getDate() -> String {
         let formatter = NSDateFormatter()
@@ -168,7 +169,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else {
             dayDisplay.text = "Day: \(dayNum())"
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
