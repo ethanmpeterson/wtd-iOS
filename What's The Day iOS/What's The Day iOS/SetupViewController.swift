@@ -33,8 +33,12 @@ class SetupViewController: UIViewController {
     
     @IBAction func nextPressed(sender: UIButton) {
         timesPressed += 1
-        print(p1Input.text)
+        //print(p1Input.text)
         let preferences = NSUserDefaults.standardUserDefaults()
+        if let p1 = p1Input.text {
+            print(p1)
+        }
+        print(p1Input.text)
         if (timesPressed == 1) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 setupLabel.text = "Enter Your Day 2 Classes Below:"
@@ -43,6 +47,10 @@ class SetupViewController: UIViewController {
                 preferences.setValue(p2Input.text, forKey: "D1P2")
                 preferences.setValue(p3Input.text, forKey: "D1P3")
                 preferences.setValue(p4Input.text, forKey: "D1P4")
+                p1Input.text = ""
+                p2Input.text = ""
+                p3Input.text = ""
+                p4Input.text = ""
             } else {
                 timesPressed -= 1
             }
@@ -52,20 +60,29 @@ class SetupViewController: UIViewController {
                 preferences.setValue(p2Input.text, forKey: "D2P2")
                 preferences.setValue(p3Input.text, forKey: "D2P3")
                 preferences.setValue(p4Input.text, forKey: "D2P4")
-                self.prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
+                self.performSegueWithIdentifier("schedule", sender: nil)
             } else {
                 timesPressed -= 1 // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two
             }
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
         navigationItem.leftBarButtonItem = backButton
         // style next button
-        nextButton.layer.cornerRadius = 10
+        nextButton.layer.cornerRadius = 15
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor.blackColor().CGColor
         // style naviagation bar to use yellow color of RSGC

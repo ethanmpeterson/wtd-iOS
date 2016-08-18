@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -37,6 +38,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let p2Time = "  (9:35 AM - 10:50 AM)"
     let p3Time = "  (11:15 AM - 12:30 PM)"
     let p4Time = "  (1:25 PM - 2:40 PM)"
+    
+    // strings to store classes
+    
+    var p1 : String!
+    var p2 : String!
+    var p3 : String!
+    var p4 : String!
     
     // changed date storage variables
     
@@ -72,13 +80,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //    func getMonth() -> String {
 //        
 //    }
-//    
+
+    func getDate() -> String {
+        let formatter = NSDateFormatter()
+        let date = NSDate()
+        formatter.dateStyle = .LongStyle
+        return formatter.stringFromDate(date)
+    }
+    
     func dayNum() -> Int {
         return schoolYear[month() - 1][day()]
     }
     
     func closeKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    func getSchedule() {
+        
+    }
+    
+    func updateSchedule() {
+        
+    }
+    
+    func labelSetup() {
+        p1Text.clipsToBounds = true
+        p2Text.clipsToBounds = true
+        p3Text.clipsToBounds = true
+        p4Text.clipsToBounds = true
+        p1Text.layer.cornerRadius = 15
+        p2Text.layer.cornerRadius = 15
+        p3Text.layer.cornerRadius = 15
+        p4Text.layer.cornerRadius = 15
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -91,6 +125,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func datePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
+        let cal = NSCalendar.currentCalendar()
+        let comp = cal.component(.Month, fromDate: sender.date)
+        print(comp)
         formatter.dateStyle = .LongStyle
         dateDisplay.text = formatter.stringFromDate(sender.date)
     }
@@ -118,14 +155,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.performSegueWithIdentifier("setup", sender: nil)
+        // style view
         navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0)
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        // Do any additional setup after loading the view, typically from a nib.
-        //p1Text.layer.backgroundColor  = UIColor(red: )
-        p1Text.layer.cornerRadius = 5
-        //p2Text.layer.backgroundColor  = UIColor(red: )
-        p2Text.layer.cornerRadius = 5
+        labelSetup()
+        dateDisplay.text = getDate()
+        // display current date in text box
         dateDisplay.delegate = self
         if (dayNum() == 9) {
             dayDisplay.text = "Day: H"
@@ -139,7 +175,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
