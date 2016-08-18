@@ -12,8 +12,8 @@
 		5300131F1D5A4ABD007D88BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5300131D1D5A4ABD007D88BB /* Main.storyboard */; };
 		530013211D5A4ABD007D88BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530013201D5A4ABD007D88BB /* Assets.xcassets */; };
 		530013241D5A4ABD007D88BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530013221D5A4ABD007D88BB /* LaunchScreen.storyboard */; };
-		5300132C1D5BF2BC007D88BB /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300132B1D5BF2BC007D88BB /* SetupViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		533124EE1D63A7ED000C231E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533124ED1D63A7ED000C231E /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		5300132C1D5BF2BC007D88BB /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300132B1D5BF2BC007D88BB /* SetupViewController.swift */; };
+		533124EE1D63A7ED000C231E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533124ED1D63A7ED000C231E /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

@@ -86,7 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.inputView = datePicker
         datePicker.datePickerMode = UIDatePickerMode.Date
         datePicker.backgroundColor = UIColor.whiteColor()
-        datePicker.addTarget(self, action: "datePickerChanged:", forControlEvents: .ValueChanged)
+        datePicker.addTarget(self, action: #selector(ViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
     }
     
     func datePickerChanged(sender: UIDatePicker) {
@@ -122,9 +122,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         // Do any additional setup after loading the view, typically from a nib.
-        p1Text.layer.backgroundColor  = UIColor.redColor().CGColor
+        //p1Text.layer.backgroundColor  = UIColor(red: )
         p1Text.layer.cornerRadius = 5
-        p2Text.layer.backgroundColor  = UIColor.redColor().CGColor
+        //p2Text.layer.backgroundColor  = UIColor(red: )
         p2Text.layer.cornerRadius = 5
         dateDisplay.delegate = self
         if (dayNum() == 9) {

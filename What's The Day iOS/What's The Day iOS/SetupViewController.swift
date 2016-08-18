@@ -32,15 +32,19 @@ class SetupViewController: UIViewController {
     
     
     @IBAction func nextPressed(sender: UIButton) {
-        timesPressed++
+        timesPressed += 1
         print(p1Input.text)
         let preferences = NSUserDefaults.standardUserDefaults()
         if (timesPressed == 1) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 setupLabel.text = "Enter Your Day 2 Classes Below:"
                 nextButton.setTitle("Save and Finish", forState: UIControlState.Normal)
+                preferences.setValue(p1Input.text, forKey: "D1P1")
+                preferences.setValue(p2Input.text, forKey: "D1P2")
+                preferences.setValue(p3Input.text, forKey: "D1P3")
+                preferences.setValue(p4Input.text, forKey: "D1P4")
             } else {
-                timesPressed--
+                timesPressed -= 1
             }
         } else if (timesPressed == 2) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
@@ -48,8 +52,9 @@ class SetupViewController: UIViewController {
                 preferences.setValue(p2Input.text, forKey: "D2P2")
                 preferences.setValue(p3Input.text, forKey: "D2P3")
                 preferences.setValue(p4Input.text, forKey: "D2P4")
+                self.prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
             } else {
-                timesPressed-- // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two
+                timesPressed -= 1 // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two
             }
         }
     }

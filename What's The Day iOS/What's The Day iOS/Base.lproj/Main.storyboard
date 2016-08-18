@@ -190,7 +190,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Schedule" id="G1N-DB-hVE">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="grb-FB-cGm">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="grb-FB-cGm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="vbv-K0-Iuw" kind="push" id="6oY-Ap-1AL"/>
                             </connections>
@@ -321,6 +322,9 @@
             <point key="canvasLocation" x="2147.5" y="-362.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_settings_white" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="te7-NI-dRb"/>
     </inferredMetricsTieBreakers>

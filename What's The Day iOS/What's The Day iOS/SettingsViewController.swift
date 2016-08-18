@@ -19,6 +19,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
