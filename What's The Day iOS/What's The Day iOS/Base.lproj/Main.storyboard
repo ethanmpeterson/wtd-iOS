@@ -255,7 +255,7 @@
                         <outlet property="p4Text" destination="3Jp-oG-ez3" id="xid-gP-d0H"/>
                         <outlet property="todayButton" destination="qXk-E8-gG2" id="NwG-4z-3pp"/>
                         <segue destination="LQw-cn-9zI" kind="push" identifier="setup" id="te7-NI-dRb"/>
-                        <segue destination="LQw-cn-9zI" kind="push" identifier="s" id="MWN-oV-8F0"/>
+                        <segue destination="LQw-cn-9zI" kind="push" identifier="schedule" id="MWN-oV-8F0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -400,6 +400,6 @@
         <image name="ic_settings_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MWN-oV-8F0"/>
+        <segue reference="te7-NI-dRb"/>
     </inferredMetricsTieBreakers>
 </document>
