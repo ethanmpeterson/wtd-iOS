@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         [9, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],  // December
     ] //same array that is in the gecko firmware that is filled with the day calendar for 2015-2016 school year
 
+    let preferences = NSUserDefaults.standardUserDefaults() // preferences store the schedule
+    
     @IBOutlet var todayButton: UIButton!
     @IBOutlet var p1Room: UILabel!
     @IBOutlet var p2Room: UILabel!
@@ -97,13 +99,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func closeKeyboard() {
         self.view.endEditing(true)
     }
-    
-    func getSchedule() {
-        
-    }
+//    
+//    func getSchedule() {
+//    }
     
     func updateSchedule() {
-        
+        if (preferences.objectForKey("D1P1") != nil) {
+            print(preferences.objectForKey("D1P1"))
+        } else {
+            
+        }
     }
     
     func labelSetup() {
@@ -159,7 +164,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.performSegueWithIdentifier("setup", sender: nil)
+        self.performSegueWithIdentifier("setup", sender: nil)
         // style view
         navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0)
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]

@@ -51,10 +51,6 @@ class SetupViewController: UIViewController {
     
     @IBAction func nextPressed(sender: UIButton) {
         timesPressed += 1
-        //print(p1Input.text)
-//        if let p1 = p1Input.text {
-//            print(p1)
-//        }
         print(p1Input.text)
         if (timesPressed == 1) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
@@ -71,7 +67,7 @@ class SetupViewController: UIViewController {
         } else if (timesPressed == 2) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 saveSchedule(2)
-                self.performSegueWithIdentifier("schedule", sender: nil)
+                self.performSegueWithIdentifier("s", sender: nil)
             } else {
                 timesPressed -= 1 // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two
             }
