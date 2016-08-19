@@ -88,6 +88,7 @@
                         <outlet property="p3Input" destination="moN-M0-sGP" id="KnR-Jr-49E"/>
                         <outlet property="p4Input" destination="QzX-SG-2gi" id="bie-Ox-hb0"/>
                         <outlet property="setupLabel" destination="SX3-J7-7pp" id="NDa-uc-O21"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="schedule" id="9ml-JS-LgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9p-cy-ElV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,12 +256,11 @@
                         <outlet property="p4Text" destination="3Jp-oG-ez3" id="xid-gP-d0H"/>
                         <outlet property="todayButton" destination="qXk-E8-gG2" id="NwG-4z-3pp"/>
                         <segue destination="LQw-cn-9zI" kind="push" identifier="setup" id="te7-NI-dRb"/>
-                        <segue destination="LQw-cn-9zI" kind="push" identifier="schedule" id="MWN-oV-8F0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2768.5" y="393.5"/>
+            <point key="canvasLocation" x="2758.5" y="393.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Cpw-zP-gnm">
@@ -401,5 +401,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="te7-NI-dRb"/>
+        <segue reference="9ml-JS-LgB"/>
     </inferredMetricsTieBreakers>
 </document>
