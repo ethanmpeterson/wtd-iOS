@@ -156,6 +156,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.performSegueWithIdentifier("setup", sender: nil)
         if (preferences.objectForKey("D1P1") == nil) {
             self.performSegueWithIdentifier("setup", sender: nil)
         } else {
@@ -174,6 +175,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else {
             dayDisplay.text = "Day: \(dayNum())"
         }
+        p1Text.text = preferences.stringForKey("D1P1")
+        p2Text.text = preferences.stringForKey("D1P2")
+        p3Text.text = preferences.stringForKey("D1P3")
+        p4Text.text = preferences.stringForKey("D1P4")
     }
 
     override func didReceiveMemoryWarning() {
