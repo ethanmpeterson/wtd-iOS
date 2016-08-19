@@ -159,6 +159,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-r7-Pat">
+                                <rect key="frame" x="303" y="221" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rel-z0-3Tt">
                                 <rect key="frame" x="303" y="287" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -177,12 +183,16 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-r7-Pat">
-                                <rect key="frame" x="303" y="221" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXk-E8-gG2">
+                                <rect key="frame" x="244" y="131" width="87" height="30"/>
+                                <color key="backgroundColor" red="0.82745098039215681" green="0.6705882352941176" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Today">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="todayPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KJ6-AN-mTC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -191,6 +201,7 @@
                             <constraint firstItem="rel-z0-3Tt" firstAttribute="leading" secondItem="VzH-pA-FHz" secondAttribute="leading" id="5ec-XJ-jgs"/>
                             <constraint firstItem="Cd5-r7-Pat" firstAttribute="leading" secondItem="rel-z0-3Tt" secondAttribute="leading" id="5nN-2P-5nB"/>
                             <constraint firstItem="MeG-kv-ipF" firstAttribute="top" secondItem="Zqy-3P-s6j" secondAttribute="bottom" constant="10" id="8ky-pi-rU0"/>
+                            <constraint firstItem="qXk-E8-gG2" firstAttribute="baseline" secondItem="dsd-ph-SUx" secondAttribute="baseline" id="C8N-MQ-jyg"/>
                             <constraint firstItem="ONR-lF-YEV" firstAttribute="top" secondItem="PXw-Mc-p0D" secondAttribute="bottom" constant="44" id="DEK-x7-zYD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cd5-r7-Pat" secondAttribute="trailing" constant="11" id="GQO-7H-ydg"/>
                             <constraint firstItem="Lxc-th-B4q" firstAttribute="baseline" secondItem="rel-z0-3Tt" secondAttribute="baseline" id="JLC-sZ-z3O"/>
@@ -201,8 +212,10 @@
                             <constraint firstItem="Zqy-3P-s6j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="Ree-zI-mNR"/>
                             <constraint firstItem="ex7-gE-TJu" firstAttribute="baseline" secondItem="Cd5-r7-Pat" secondAttribute="baseline" id="RnB-ev-csd"/>
                             <constraint firstItem="ex7-gE-TJu" firstAttribute="trailing" secondItem="Lxc-th-B4q" secondAttribute="trailing" id="S1p-jB-YKr"/>
+                            <constraint firstItem="qXk-E8-gG2" firstAttribute="leading" secondItem="MeG-kv-ipF" secondAttribute="trailing" constant="15" id="Tt9-eI-Bft"/>
                             <constraint firstItem="VzH-pA-FHz" firstAttribute="top" secondItem="Lxc-th-B4q" secondAttribute="bottom" constant="44" id="UCl-hL-49p"/>
                             <constraint firstItem="Lxc-th-B4q" firstAttribute="leading" secondItem="PXw-Mc-p0D" secondAttribute="leading" id="We1-zx-iiK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qXk-E8-gG2" secondAttribute="trailing" constant="28" id="XCj-fv-ise"/>
                             <constraint firstItem="3Jp-oG-ez3" firstAttribute="baseline" secondItem="ONR-lF-YEV" secondAttribute="baseline" id="XYH-N9-LsM"/>
                             <constraint firstItem="ex7-gE-TJu" firstAttribute="top" secondItem="MeG-kv-ipF" secondAttribute="bottom" constant="32" id="ZCR-9r-nof"/>
                             <constraint firstItem="dsd-ph-SUx" firstAttribute="leading" secondItem="ex7-gE-TJu" secondAttribute="leading" id="bKT-gA-8jC"/>
@@ -240,6 +253,7 @@
                         <outlet property="p3Text" destination="PXw-Mc-p0D" id="thJ-7F-alr"/>
                         <outlet property="p4Room" destination="ONR-lF-YEV" id="sEz-yr-omP"/>
                         <outlet property="p4Text" destination="3Jp-oG-ez3" id="xid-gP-d0H"/>
+                        <outlet property="todayButton" destination="qXk-E8-gG2" id="NwG-4z-3pp"/>
                         <segue destination="LQw-cn-9zI" kind="push" identifier="setup" id="te7-NI-dRb"/>
                         <segue destination="LQw-cn-9zI" kind="push" identifier="schedule" id="MWN-oV-8F0"/>
                     </connections>

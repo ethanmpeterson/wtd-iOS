@@ -10,6 +10,7 @@ import UIKit
 
 class SetupViewController: UIViewController {
     
+    let preferences = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var setupLabel: UILabel!
@@ -30,23 +31,36 @@ class SetupViewController: UIViewController {
         closeKeyboard()
     }
     
+    func saveSchedule(dayNumber : Int) {
+        if (dayNumber == 1) {
+            if let p1 = p1Input.text, let p2 = p2Input.text, let p3 = p3Input.text, let p4 = p4Input.text {
+                preferences.setValue(p1, forKey: "D1P1")
+                preferences.setValue(p2, forKey: "D1P2")
+                preferences.setValue(p3, forKey: "D1P3")
+                preferences.setValue(p4, forKey: "D1P4")
+            }
+        } else if (dayNumber == 2) {
+            if let p1 = p1Input.text, let p2 = p2Input.text, let p3 = p3Input.text, let p4 = p4Input.text {
+                preferences.setValue(p1, forKey: "D2P1")
+                preferences.setValue(p2, forKey: "D2P2")
+                preferences.setValue(p3, forKey: "D2P3")
+                preferences.setValue(p4, forKey: "D2P4")
+            }
+        }
+    }
     
     @IBAction func nextPressed(sender: UIButton) {
         timesPressed += 1
         //print(p1Input.text)
-        let preferences = NSUserDefaults.standardUserDefaults()
-        if let p1 = p1Input.text {
-            print(p1)
-        }
+//        if let p1 = p1Input.text {
+//            print(p1)
+//        }
         print(p1Input.text)
         if (timesPressed == 1) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 setupLabel.text = "Enter Your Day 2 Classes Below:"
                 nextButton.setTitle("Save and Finish", forState: UIControlState.Normal)
-                preferences.setValue(p1Input.text, forKey: "D1P1")
-                preferences.setValue(p2Input.text, forKey: "D1P2")
-                preferences.setValue(p3Input.text, forKey: "D1P3")
-                preferences.setValue(p4Input.text, forKey: "D1P4")
+                saveSchedule(1)
                 p1Input.text = ""
                 p2Input.text = ""
                 p3Input.text = ""
@@ -56,10 +70,7 @@ class SetupViewController: UIViewController {
             }
         } else if (timesPressed == 2) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
-                preferences.setValue(p1Input.text, forKey: "D2P1")
-                preferences.setValue(p2Input.text, forKey: "D2P2")
-                preferences.setValue(p3Input.text, forKey: "D2P3")
-                preferences.setValue(p4Input.text, forKey: "D2P4")
+                saveSchedule(2)
                 self.performSegueWithIdentifier("schedule", sender: nil)
             } else {
                 timesPressed -= 1 // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two

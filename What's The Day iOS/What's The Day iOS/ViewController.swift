@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         [9, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],  // December
     ] //same array that is in the gecko firmware that is filled with the day calendar for 2015-2016 school year
 
+    @IBOutlet var todayButton: UIButton!
     @IBOutlet var p1Room: UILabel!
     @IBOutlet var p2Room: UILabel!
     @IBOutlet var p3Room: UILabel!
@@ -114,6 +115,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         p2Text.layer.cornerRadius = 15
         p3Text.layer.cornerRadius = 15
         p4Text.layer.cornerRadius = 15
+    }
+    
+    @IBAction func todayPressed(sender: UIButton) {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
