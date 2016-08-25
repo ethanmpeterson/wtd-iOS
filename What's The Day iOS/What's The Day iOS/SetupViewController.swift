@@ -11,6 +11,9 @@ import UIKit
 class SetupViewController: UIViewController {
     
     let preferences = NSUserDefaults.standardUserDefaults()
+    var schedule : Schedule!
+    
+    var frameView: UIView!
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var setupLabel: UILabel!
@@ -33,10 +36,10 @@ class SetupViewController: UIViewController {
     
     func saveSchedule(dayNumber : Int) {
         if (dayNumber == 1) {
-            preferences.setValue(p1Input.text, forKey: "D1P1")
-            preferences.setValue(p2Input.text, forKey: "D1P2")
-            preferences.setValue(p3Input.text, forKey: "D1P3")
-            preferences.setValue(p4Input.text, forKey: "D1P4")
+//            preferences.setValue(p1Input.text, forKey: "D1P1")
+//            preferences.setValue(p2Input.text, forKey: "D1P2")
+//            preferences.setValue(p3Input.text, forKey: "D1P3")
+//            preferences.setValue(p4Input.text, forKey: "D1P4")
         } else if (dayNumber == 2) {
             preferences.setValue(p1Input.text, forKey: "D2P1")
             preferences.setValue(p2Input.text, forKey: "D2P2")
@@ -82,6 +85,15 @@ class SetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        
+        
+        // Keyboard stuff.
+        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: #selector(ATReportContentViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(ATReportContentViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
         navigationItem.leftBarButtonItem = backButton
         // style next button

@@ -122,7 +122,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.inputView = datePicker
         datePicker.datePickerMode = UIDatePickerMode.Date
         datePicker.backgroundColor = UIColor.whiteColor()
-        datePicker.addTarget(self, action: #selector(ViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
+        datePicker.addTarget(self, action: "datePickerChanged:", forControlEvents: .ValueChanged)
     }
     
     func datePickerChanged(sender: UIDatePicker) {
