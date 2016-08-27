@@ -8,12 +8,10 @@
 
 import UIKit
 
-class SetupViewController: UIViewController {
+class SetupViewController: UIViewController, UITextViewDelegate {
     
     let preferences = NSUserDefaults.standardUserDefaults()
     var schedule : Schedule!
-    
-    var frameView: UIView!
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var setupLabel: UILabel!
@@ -36,10 +34,10 @@ class SetupViewController: UIViewController {
     
     func saveSchedule(dayNumber : Int) {
         if (dayNumber == 1) {
-//            preferences.setValue(p1Input.text, forKey: "D1P1")
-//            preferences.setValue(p2Input.text, forKey: "D1P2")
-//            preferences.setValue(p3Input.text, forKey: "D1P3")
-//            preferences.setValue(p4Input.text, forKey: "D1P4")
+            preferences.setValue(p1Input.text, forKey: "D1P1")
+            preferences.setValue(p2Input.text, forKey: "D1P2")
+            preferences.setValue(p3Input.text, forKey: "D1P3")
+            preferences.setValue(p4Input.text, forKey: "D1P4")
         } else if (dayNumber == 2) {
             preferences.setValue(p1Input.text, forKey: "D2P1")
             preferences.setValue(p2Input.text, forKey: "D2P2")
@@ -50,6 +48,7 @@ class SetupViewController: UIViewController {
     
     @IBAction func nextPressed(sender: UIButton) {
         timesPressed += 1
+        closeKeyboard()
         print(p1Input.text)
         if (timesPressed == 1) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
@@ -86,14 +85,10 @@ class SetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
         // Keyboard stuff.
-        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: #selector(ATReportContentViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: #selector(ATReportContentViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
         navigationItem.leftBarButtonItem = backButton
         // style next button
@@ -109,7 +104,25 @@ class SetupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if (p3Input.editing || p4Input.editing) {
+                if view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= keyboardSize.height
+                }
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
