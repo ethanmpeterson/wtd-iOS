@@ -10,6 +10,7 @@ import UIKit
 
 class SetupViewController: UIViewController, UITextViewDelegate {
     
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
     let preferences = NSUserDefaults.standardUserDefaults()
     var schedule : Schedule!
     
@@ -46,6 +47,7 @@ class SetupViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    
     @IBAction func nextPressed(sender: UIButton) {
         timesPressed += 1
         closeKeyboard()
@@ -72,15 +74,18 @@ class SetupViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
     
+    
     override func viewWillAppear(animated: Bool) {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +112,11 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            if (p3Input.editing || p4Input.editing) {
-                if view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= keyboardSize.height
+            if (screenSize.height != 736 && screenSize.width != 414) {
+                if (p3Input.editing || p4Input.editing) {
+                    if view.frame.origin.y == 0 {
+                        self.view.frame.origin.y -= keyboardSize.height
+                    }
                 }
             }
         }
