@@ -294,29 +294,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-8A-g7s">
-                                <rect key="frame" x="20" y="67" width="335" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4r-xv-MeI">
+                                <rect key="frame" x="20" y="49" width="335" height="45"/>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.10196078431372549" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="mKc-ch-dyt"/>
+                                    <constraint firstAttribute="width" constant="335" id="NoO-Ly-3Uj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Txf-ud-dlr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Change Schedule"/>
+                                <state key="normal" title="Change Schedule">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-q4-1TM">
-                                <rect key="frame" x="20" y="122" width="335" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKh-95-5MT">
+                                <rect key="frame" x="20" y="111" width="335" height="45"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.1019607843" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="335" id="4qW-JK-91d"/>
+                                    <constraint firstAttribute="width" constant="335" id="Gfa-UL-JhL"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="I0M-Fz-wKg"/>
+                                    <constraint firstAttribute="height" constant="45" id="wBW-a1-uEC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add Room Numbers"/>
+                                <state key="normal" title="Add Room Numbers">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="K8N-8A-g7s" firstAttribute="trailing" secondItem="dgs-q4-1TM" secondAttribute="trailing" id="1nF-7K-ZxH"/>
-                            <constraint firstItem="K8N-8A-g7s" firstAttribute="centerX" secondItem="bg1-Xy-lKL" secondAttribute="centerX" id="5Iv-eF-foY"/>
-                            <constraint firstItem="K8N-8A-g7s" firstAttribute="top" secondItem="GFR-ka-QIh" secondAttribute="bottom" constant="47" id="Dxg-lm-mMv"/>
-                            <constraint firstItem="K8N-8A-g7s" firstAttribute="leading" secondItem="bg1-Xy-lKL" secondAttribute="leadingMargin" constant="4" id="JHY-kb-P5i"/>
-                            <constraint firstItem="K8N-8A-g7s" firstAttribute="leading" secondItem="dgs-q4-1TM" secondAttribute="leading" id="N2a-1U-dSI"/>
-                            <constraint firstItem="DeQ-wA-erI" firstAttribute="top" secondItem="dgs-q4-1TM" secondAttribute="bottom" constant="512" id="got-KM-5Ld"/>
-                            <constraint firstItem="dgs-q4-1TM" firstAttribute="top" secondItem="K8N-8A-g7s" secondAttribute="bottom" constant="28" id="obe-FV-Ou9"/>
+                            <constraint firstItem="F4r-xv-MeI" firstAttribute="leading" secondItem="bg1-Xy-lKL" secondAttribute="leadingMargin" constant="4" id="1ck-es-KUc"/>
+                            <constraint firstItem="F4r-xv-MeI" firstAttribute="centerX" secondItem="bg1-Xy-lKL" secondAttribute="centerX" id="5a4-D7-bv9"/>
+                            <constraint firstItem="F4r-xv-MeI" firstAttribute="leading" secondItem="AKh-95-5MT" secondAttribute="leading" id="cCx-LN-oMr"/>
+                            <constraint firstItem="F4r-xv-MeI" firstAttribute="top" secondItem="GFR-ka-QIh" secondAttribute="bottom" constant="29" id="gyg-iX-284"/>
+                            <constraint firstItem="AKh-95-5MT" firstAttribute="top" secondItem="F4r-xv-MeI" secondAttribute="bottom" constant="17" id="y9e-ny-Yab"/>
+                            <constraint firstItem="F4r-xv-MeI" firstAttribute="trailing" secondItem="AKh-95-5MT" secondAttribute="trailing" id="yt2-w5-bpC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Art-Oq-WXk"/>

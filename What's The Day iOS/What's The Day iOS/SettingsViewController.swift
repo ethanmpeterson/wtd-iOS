@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
+        //self.view.translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func didReceiveMemoryWarning() {
