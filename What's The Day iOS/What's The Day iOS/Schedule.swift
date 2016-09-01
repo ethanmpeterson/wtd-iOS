@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Schedule {
+class Schedule : NSObject {
     
     // day 1 strings
     var d1p1 : String!
@@ -28,7 +28,7 @@ class Schedule {
     var p3Room : String!
     var p4Room : String!
     
-    init() { // constructor for main schedule
+    override init() { // constructor for main schedule
     }
     
     func enterDayOne(p1Class : String, p2Class : String, p3Class : String, p4Class : String) {

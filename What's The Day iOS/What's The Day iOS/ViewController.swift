@@ -104,6 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func update() {
+        
     }
     
     func labelSetup() {
@@ -111,10 +112,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         p2Text.clipsToBounds = true
         p3Text.clipsToBounds = true
         p4Text.clipsToBounds = true
+        todayButton.clipsToBounds = true
         p1Text.layer.cornerRadius = 15
         p2Text.layer.cornerRadius = 15
         p3Text.layer.cornerRadius = 15
         p4Text.layer.cornerRadius = 15
+        todayButton.layer.cornerRadius = 15
     }
     
     @IBAction func todayPressed(sender: UIButton) {

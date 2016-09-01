@@ -10,7 +10,7 @@ import UIKit
 
 class SetupViewController: UIViewController, UITextViewDelegate {
     
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    let screenSize : CGRect = UIScreen.mainScreen().bounds
     let preferences = NSUserDefaults.standardUserDefaults()
     var schedule : Schedule!
     
@@ -47,10 +47,10 @@ class SetupViewController: UIViewController, UITextViewDelegate {
 //            preferences.setValue(p3Input.text, forKey: "D2P3")
 //            preferences.setValue(p4Input.text, forKey: "D2P4")
         }
-        preferences.setObject(schedule, forKey: "schedule")
+        let encodedData = NSKeyedArchiver.archivedDataWithRootObject(schedule)
+        preferences.setObject(encodedData, forKey: "schedule")
         let didSave = preferences.synchronize()
         if (!didSave) { // runs if save failed (does not seem to happen in testing)
-            preferences.synchronize()
         }
     }
     
@@ -92,19 +92,18 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(animated: Bool) {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        if (preferences.boolForKey("setupComplete") == false) {
+            let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
+            navigationItem.leftBarButtonItem = backButton
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        schedule = Schedule()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        
-        if (preferences.boolForKey("setupComplete") == true) {
-            let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
-            navigationItem.leftBarButtonItem = backButton
-        }
         
         // style next button
         nextButton.layer.cornerRadius = 15
