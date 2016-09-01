@@ -35,15 +35,22 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     
     func saveSchedule(dayNumber : Int) {
         if (dayNumber == 1) {
-            preferences.setValue(p1Input.text, forKey: "D1P1")
-            preferences.setValue(p2Input.text, forKey: "D1P2")
-            preferences.setValue(p3Input.text, forKey: "D1P3")
-            preferences.setValue(p4Input.text, forKey: "D1P4")
+            schedule.enterDayOne(p1Input.text!, p2Class: p2Input.text!, p3Class: p3Input.text!, p4Class: p4Input.text!)
+//            preferences.setValue(p1Input.text, forKey: "D1P1")
+//            preferences.setValue(p2Input.text, forKey: "D1P2")
+//            preferences.setValue(p3Input.text, forKey: "D1P3")
+//            preferences.setValue(p4Input.text, forKey: "D1P4")
         } else if (dayNumber == 2) {
-            preferences.setValue(p1Input.text, forKey: "D2P1")
-            preferences.setValue(p2Input.text, forKey: "D2P2")
-            preferences.setValue(p3Input.text, forKey: "D2P3")
-            preferences.setValue(p4Input.text, forKey: "D2P4")
+            schedule.enterDayTwo(p1Input.text!, p2Class: p2Input.text!, p3Class: p3Input.text!, p4Class: p4Input.text!)
+//            preferences.setValue(p1Input.text, forKey: "D2P1")
+//            preferences.setValue(p2Input.text, forKey: "D2P2")
+//            preferences.setValue(p3Input.text, forKey: "D2P3")
+//            preferences.setValue(p4Input.text, forKey: "D2P4")
+        }
+        preferences.setObject(schedule, forKey: "schedule")
+        let didSave = preferences.synchronize()
+        if (!didSave) { // runs if save failed (does not seem to happen in testing)
+            preferences.synchronize()
         }
     }
     
@@ -67,6 +74,7 @@ class SetupViewController: UIViewController, UITextViewDelegate {
         } else if (timesPressed == 2) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 saveSchedule(2)
+                preferences.setBool(true, forKey: "setupComplete")
                 self.performSegueWithIdentifier("schedule", sender: nil)
             } else {
                 timesPressed -= 1 // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two
@@ -90,12 +98,14 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
-        // Keyboard stuff.
-        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
-        navigationItem.leftBarButtonItem = backButton
+        if (preferences.boolForKey("setupComplete") == true) {
+            let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
+            navigationItem.leftBarButtonItem = backButton
+        }
+        
         // style next button
         nextButton.layer.cornerRadius = 15
         nextButton.layer.borderWidth = 1

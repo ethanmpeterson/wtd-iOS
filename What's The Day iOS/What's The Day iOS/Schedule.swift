@@ -44,4 +44,8 @@ class Schedule {
         d2p3 = p3Class
         d2p4 = p4Class
     }
+    
+    func make(s : Schedule) -> Schedule {
+        return s
+    }
 }

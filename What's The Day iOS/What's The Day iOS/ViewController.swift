@@ -52,6 +52,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var p2 : String!
     var p3 : String!
     var p4 : String!
+    var schedule : AnyObject!
+    var classes : [[String]]!
     
     // changed date storage variables
     
@@ -91,16 +93,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    func getSchedule() {
-        
+    func buildSchedule() {
+        schedule = preferences.objectForKey("schedule")
+        classes = [
+            [(schedule as! Schedule).d1p1, (schedule as! Schedule).d1p2, (schedule as! Schedule).d1p3, (schedule as! Schedule).d1p4],
+            [(schedule as! Schedule).d2p1, (schedule as! Schedule).d2p2, (schedule as! Schedule).d2p3, (schedule as! Schedule).d2p4],
+            [(schedule as! Schedule).d1p4, (schedule as! Schedule).d1p2, (schedule as! Schedule).d1p3, (schedule as! Schedule).d1p1],
+            [(schedule as! Schedule).d2p4, (schedule as! Schedule).d2p2, (schedule as! Schedule).d2p3, (schedule as! Schedule).d2p1],
+        ]
     }
     
-    func updateSchedule() {
-        if (preferences.objectForKey("D1P1") != nil) {
-            print(preferences.objectForKey("D1P1"))
-        } else {
-            
-        }
+    func update() {
     }
     
     func labelSetup() {
@@ -122,7 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.inputView = datePicker
         datePicker.datePickerMode = UIDatePickerMode.Date
         datePicker.backgroundColor = UIColor.whiteColor()
-        datePicker.addTarget(self, action: "datePickerChanged:", forControlEvents: .ValueChanged)
+        datePicker.addTarget(self, action: #selector(ViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
     }
     
     func datePickerChanged(sender: UIDatePicker) {
@@ -156,11 +159,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.performSegueWithIdentifier("setup", sender: nil)
-        if (preferences.objectForKey("D1P1") == nil) {
+        if (preferences.objectForKey("schedule") == nil) {
             self.performSegueWithIdentifier("setup", sender: nil)
         } else {
-            print(preferences.stringForKey("D1P1"))
+            buildSchedule()
         }
         // style view
         navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0)
@@ -177,10 +179,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else {
             dayDisplay.text = "Day: \(dayNum())"
         }
-        p1Text.text = preferences.stringForKey("D1P1")
-        p2Text.text = preferences.stringForKey("D1P2")
-        p3Text.text = preferences.stringForKey("D1P3")
-        p4Text.text = preferences.stringForKey("D1P4")
     }
 
     override func didReceiveMemoryWarning() {
