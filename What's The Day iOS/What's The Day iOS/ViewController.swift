@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -94,17 +93,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func buildSchedule() {
-        schedule = preferences.objectForKey("schedule")
         classes = [
-            [(schedule as! Schedule).d1p1, (schedule as! Schedule).d1p2, (schedule as! Schedule).d1p3, (schedule as! Schedule).d1p4],
-            [(schedule as! Schedule).d2p1, (schedule as! Schedule).d2p2, (schedule as! Schedule).d2p3, (schedule as! Schedule).d2p4],
-            [(schedule as! Schedule).d1p4, (schedule as! Schedule).d1p2, (schedule as! Schedule).d1p3, (schedule as! Schedule).d1p1],
-            [(schedule as! Schedule).d2p4, (schedule as! Schedule).d2p2, (schedule as! Schedule).d2p3, (schedule as! Schedule).d2p1],
+            [preferences.stringForKey("D1P1")!, preferences.stringForKey("D1P2")!, preferences.stringForKey("D1P3")!, preferences.stringForKey("D1P4")!],
+            [preferences.stringForKey("D2P1")!, preferences.stringForKey("D2P2")!, preferences.stringForKey("D2P3")!, preferences.stringForKey("D2P4")!],
+            [preferences.stringForKey("D1P4")!, preferences.stringForKey("D1P2")!, preferences.stringForKey("D1P3")!, preferences.stringForKey("D1P1")!],
+            [preferences.stringForKey("D2P4")!, preferences.stringForKey("D2P2")!, preferences.stringForKey("D2P3")!, preferences.stringForKey("D2P1")!],
         ]
     }
     
     func update() {
-        
+        if (dayNum() != 9 && dayNum() != 0) {
+            p1 = classes[dayNum() - 1][1]
+            p2 = classes[dayNum() - 1][2]
+            p3 = classes[dayNum() - 1][3]
+            p4 = classes[dayNum() - 1][4]
+        } else {
+            p1 = "H"
+            p2 = "H"
+            p3 = "H"
+            p4 = "H"
+        }
+    }
+    
+    func drawSchedule() {
+        p1Text.text = p1
+        p2Text.text = p2
+        p3Text.text = p3
+        p4Text.text = p4
     }
     
     func labelSetup() {
@@ -138,6 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print(comp)
         formatter.dateStyle = .LongStyle
         dateDisplay.text = formatter.stringFromDate(sender.date)
+        dateChanged = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -162,10 +178,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (preferences.objectForKey("schedule") == nil) {
+        if (preferences.stringForKey("D2P4") == nil) {
             self.performSegueWithIdentifier("setup", sender: nil)
         } else {
             buildSchedule()
+            print(classes[1][1])
+            update()
+            drawSchedule()
         }
         // style view
         navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0)

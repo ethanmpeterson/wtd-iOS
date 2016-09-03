@@ -36,19 +36,19 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     func saveSchedule(dayNumber : Int) {
         if (dayNumber == 1) {
             schedule.enterDayOne(p1Input.text!, p2Class: p2Input.text!, p3Class: p3Input.text!, p4Class: p4Input.text!)
-//            preferences.setValue(p1Input.text, forKey: "D1P1")
-//            preferences.setValue(p2Input.text, forKey: "D1P2")
-//            preferences.setValue(p3Input.text, forKey: "D1P3")
-//            preferences.setValue(p4Input.text, forKey: "D1P4")
+            preferences.setValue(p1Input.text, forKey: "D1P1")
+            preferences.setValue(p2Input.text, forKey: "D1P2")
+            preferences.setValue(p3Input.text, forKey: "D1P3")
+            preferences.setValue(p4Input.text, forKey: "D1P4")
         } else if (dayNumber == 2) {
-            schedule.enterDayTwo(p1Input.text!, p2Class: p2Input.text!, p3Class: p3Input.text!, p4Class: p4Input.text!)
-//            preferences.setValue(p1Input.text, forKey: "D2P1")
-//            preferences.setValue(p2Input.text, forKey: "D2P2")
-//            preferences.setValue(p3Input.text, forKey: "D2P3")
-//            preferences.setValue(p4Input.text, forKey: "D2P4")
+            //schedule.enterDayTwo(p1Input.text!, p2Class: p2Input.text!, p3Class: p3Input.text!, p4Class: p4Input.text!)
+            preferences.setValue(p1Input.text, forKey: "D2P1")
+            preferences.setValue(p2Input.text, forKey: "D2P2")
+            preferences.setValue(p3Input.text, forKey: "D2P3")
+            preferences.setValue(p4Input.text, forKey: "D2P4")
         }
-        let encodedData = NSKeyedArchiver.archivedDataWithRootObject(schedule)
-        preferences.setObject(encodedData, forKey: "schedule")
+        //let encodedData = NSKeyedArchiver.archivedDataWithRootObject(schedule)
+        //preferences.setObject(encodedData, forKey: "schedule")
         let didSave = preferences.synchronize()
         if (!didSave) { // runs if save failed (does not seem to happen in testing)
         }
