@@ -10,6 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet var changeSchedule: UIButton!
+    @IBOutlet var roomNums: UIButton!
+    
+    let preferences = NSUserDefaults.standardUserDefaults()
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
@@ -30,6 +35,9 @@ class SettingsViewController: UIViewController {
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
         //self.view.translatesAutoresizingMaskIntoConstraints = false
+        if (preferences.boolForKey("roomsAdded") == true) {
+            roomNums.setTitle("Change Room Numbers", forState: UIControlState.Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {

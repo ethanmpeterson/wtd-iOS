@@ -24,8 +24,8 @@ class RoomNumberViewController: UIViewController {
     
     let screenSize : CGRect = UIScreen.mainScreen().bounds
     var timesPressed : Int = 0
-    
-    
+    let preferences = NSUserDefaults.standardUserDefaults()
+    var rooomsAdded = false
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -46,6 +46,34 @@ class RoomNumberViewController: UIViewController {
         p4Label.clipsToBounds = true
     }
     
+    func clearText() {
+        p1Room.text = nil
+        p2Room.text = nil
+        p3Room.text = nil
+        p4Room.text = nil
+    }
+    
+    func clearLabels() {
+        p1Label.text = nil
+        p2Label.text = nil
+        p3Label.text = nil
+        p4Label.text = nil
+    }
+    
+    func displayDayOne() {
+        p1Label.text = preferences.stringForKey("D1P1")
+        p2Label.text = preferences.stringForKey("D1P2")
+        p3Label.text = preferences.stringForKey("D1P3")
+        p4Label.text = preferences.stringForKey("D1P4")
+    }
+    
+    func displayDayTwo() {
+        p1Label.text = preferences.stringForKey("D2P1")
+        p2Label.text = preferences.stringForKey("D2P2")
+        p3Label.text = preferences.stringForKey("D2P3")
+        p4Label.text = preferences.stringForKey("D2P4")
+    }
+    
     func closeKeyboard() {
         self.view.endEditing(true)
     }
@@ -60,10 +88,43 @@ class RoomNumberViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
+        displayDayOne()
     }
 
     @IBAction func nextPressed(sender: UIButton) {
-        
+        timesPressed += 1
+        if (timesPressed == 1) {
+            if (p1Room.text != "" && p2Room.text != "" && p3Room.text != "" && p4Room.text != "") {
+                nextButton.setTitle("Save & Finish", forState: UIControlState.Normal)
+                preferences.setObject(p1Room.text, forKey: "D1P1R")
+                preferences.setObject(p2Room.text, forKey: "D1P2R")
+                preferences.setObject(p3Room.text, forKey: "D1P3R")
+                preferences.setObject(p4Room.text, forKey: "D1P4R")
+                closeKeyboard()
+                clearText()
+                displayDayTwo()
+            } else {
+                timesPressed -= 1
+            }
+        }
+        if (timesPressed == 2) {
+            if (p1Room.text != "" && p2Room.text != "" && p3Room.text != "" && p4Room.text != "") {
+                nextButton.setTitle("Save & Finish", forState: UIControlState.Normal)
+                preferences.setObject(p1Room.text, forKey: "D2P1R")
+                preferences.setObject(p2Room.text, forKey: "D2P2R")
+                preferences.setObject(p3Room.text, forKey: "D2P3R")
+                preferences.setObject(p4Room.text, forKey: "D2P4R")
+                preferences.setBool(true, forKey: "roomsAdded")
+                closeKeyboard()
+                let didSave = preferences.synchronize()
+                if (!didSave) { // runs if save failed
+                    
+                }
+                self.performSegueWithIdentifier("rooms", sender: nil)
+            } else {
+                timesPressed -= 1
+            }
+        }
     }
     
     func keyboardWillShow(notification: NSNotification) {

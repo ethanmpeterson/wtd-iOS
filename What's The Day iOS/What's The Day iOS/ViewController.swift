@@ -10,20 +10,20 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    let schoolYear: [[Int]] = [
-        [9, 9, 9, 9, 0, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2, 3, 4, 1, 2, 9, 9], // January
-        [9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 9, 9, 9, 9, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1],       // February
-        [9, 2, 3, 4, 1, 9, 9, 2, 3, 4, 1, 2, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 3, 4, 1], // March
-        [9, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2, 3, 4, 1, 2, 9],    // April
-        [9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 9, 2, 3, 4, 1, 9, 9, 2, 3], // May
-        [9, 4, 1, 2, 9, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],    // June
-        [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9], // July
-        [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9], // August
-        [9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 5, 9, 9, 4, 1, 2],    // September
-        [9, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 9, 2, 3, 4, 1, 9, 9, 2, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9], // October
-        [9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 9, 9, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2],    // November
-        [9, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],  // December
-    ] //same array that is in the gecko firmware that is filled with the day calendar for 2015-2016 school year
+    let schoolYear : [[Int]] = [
+        [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2, 3], // January
+        [9, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 9, 9, 9, 9, 4, 1, 2, 3, 9, 9, 4, 1],           // February
+        [9, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 2, 3, 4, 1],  // March
+        [9, 9, 9, 2, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 9, 9, 9, 9, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9],   // April
+        [9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2, 3, 4, 1, 2, 9, 9, 9, 3, 4, 1, 2, 9, 9, 3, 4, 1], // May
+        [9, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],    // June
+        [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],   // July
+        [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],   // August
+        [9, 9, 9, 9, 9, 9, 9, 0, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 0, 9, 9, 4, 1, 2, 3, 4],  // September
+        [9, 9, 9, 1, 2, 3, 4, 1, 9, 9, 0, 2, 3, 4, 1, 9, 9, 2, 3, 4, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4], // October
+        [9, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 9, 9, 9, 9, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2, 3, 4],    // November
+        [9, 1, 2, 9, 9, 3, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9], // December
+    ] // Day Calendar 2016 - 2017
 
     let preferences = NSUserDefaults.standardUserDefaults()
     
@@ -51,11 +51,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var p2 : String!
     var p3 : String!
     var p4 : String!
+    
+    var p1R : String!
+    var p2R : String!
+    var p3R : String!
+    var p4R : String!
+    
     var schedule : AnyObject!
     var classes : [[String]]!
+    var rooms : [[String]]!
     
     // changed date storage variables
-    
+    var dayNumber : Int!
     var dateChanged = false
     
     func month() -> Int {
@@ -101,17 +108,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         ]
     }
     
+    func buildRooms() {
+        rooms = [
+            [preferences.stringForKey("D1P1R")!, preferences.stringForKey("D1P2R")!, preferences.stringForKey("D1P3R")!, preferences.stringForKey("D1P4R")!],
+            [preferences.stringForKey("D2P1R")!, preferences.stringForKey("D2P2R")!, preferences.stringForKey("D2P3R")!, preferences.stringForKey("D2P4R")!],
+            [preferences.stringForKey("D1P4R")!, preferences.stringForKey("D1P2R")!, preferences.stringForKey("D1P3R")!, preferences.stringForKey("D1P1R")!],
+            [preferences.stringForKey("D2P4R")!, preferences.stringForKey("D2P2R")!, preferences.stringForKey("D2P3R")!, preferences.stringForKey("D2P1R")!],
+        ]
+    }
+    
     func update() {
-        if (dayNum() != 9 && dayNum() != 0) {
-            p1 = classes[dayNum() - 1][1]
-            p2 = classes[dayNum() - 1][2]
-            p3 = classes[dayNum() - 1][3]
-            p4 = classes[dayNum() - 1][4]
+        if (!dateChanged) {
+            dayNumber = dayNum()
+        }
+        if (dayNumber != 9 && dayNumber != 0) {
+            p1 = classes[dayNumber - 1][0]
+            p2 = classes[dayNumber - 1][1]
+            p3 = classes[dayNumber - 1][2]
+            p4 = classes[dayNumber - 1][3]
         } else {
             p1 = "H"
             p2 = "H"
             p3 = "H"
             p4 = "H"
+        }
+        if (preferences.boolForKey("roomsAdded")) {
+            if (dayNumber != 9 && dayNumber != 0) {
+                p1R = rooms[dayNumber - 1][0]
+                p2R = rooms[dayNumber - 1][1]
+                p3R = rooms[dayNumber - 1][2]
+                p4R = rooms[dayNumber - 1][3]
+            }
         }
     }
     
@@ -120,6 +147,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         p2Text.text = p2
         p3Text.text = p3
         p4Text.text = p4
+        if (dateChanged) {
+            todayButton.hidden = false
+        } else {
+            todayButton.hidden = true
+        }
+    }
+    
+    func drawDay() {
+        if (dayNumber == 9) {
+            dayDisplay.text = "Day: H"
+        } else {
+            dayDisplay.text = "Day: \(dayNumber)"
+        }
+    }
+    
+    func drawRooms() {
+        p1Room.text = p1R
+        p2Room.text = p2R
+        p3Room.text = p3R
+        p4Room.text = p4R
     }
     
     func labelSetup() {
@@ -136,6 +183,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func todayPressed(sender: UIButton) {
+        dateChanged = false
+        update()
+        drawSchedule()
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -147,13 +197,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func datePickerChanged(sender: UIDatePicker) {
+        dateChanged = true
         let formatter = NSDateFormatter()
         let cal = NSCalendar.currentCalendar()
-        let comp = cal.component(.Month, fromDate: sender.date)
-        print(comp)
+        let month = cal.component(.Month, fromDate: sender.date)
+        let day = cal.component(.Day, fromDate: sender.date)
+        dayNumber = schoolYear[month - 1][day]
+        update()
+        drawSchedule()
+        drawDay()
+        drawRooms()
         formatter.dateStyle = .LongStyle
         dateDisplay.text = formatter.stringFromDate(sender.date)
-        dateChanged = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -182,9 +237,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.performSegueWithIdentifier("setup", sender: nil)
         } else {
             buildSchedule()
-            print(classes[1][1])
+            buildRooms()
             update()
             drawSchedule()
+            drawDay()
+            drawRooms()
+            p1Room.text = ""
+            p2Room.text = ""
+            p3Room.text = ""
+            p4Room.text = ""
         }
         // style view
         navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0)
@@ -196,11 +257,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dateDisplay.text = getDate()
         // display current date in text box
         dateDisplay.delegate = self
-        if (dayNum() == 9) {
-            dayDisplay.text = "Day: H"
-        } else {
-            dayDisplay.text = "Day: \(dayNum())"
-        }
+        drawDay()
     }
 
     override func didReceiveMemoryWarning() {
