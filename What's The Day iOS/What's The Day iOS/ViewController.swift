@@ -186,6 +186,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dateChanged = false
         update()
         drawSchedule()
+        dateDisplay.text = getDate()
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
