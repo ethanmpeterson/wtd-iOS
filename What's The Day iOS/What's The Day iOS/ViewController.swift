@@ -40,10 +40,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var dayDisplay: UILabel! // text label that displays day number on screen and H if there is no school
     // class timeframe strings
     
-    let p1Time = "  (8:15 AM - 9:30 AM)"
-    let p2Time = "  (9:35 AM - 10:50 AM)"
+    let p1Time = "  (8:15 - 9:30 AM)"
+    let p2Time = "  (9:35 - 10:50 AM)"
     let p3Time = "  (11:15 AM - 12:30 PM)"
-    let p4Time = "  (1:25 PM - 2:40 PM)"
+    let p4Time = "  (1:25 - 2:40 PM)"
     
     // strings to store classes
     
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var rooms : [[String]]!
     
     // changed date storage variables
-    var dayNumber : Int!
+    var dayNumber : Int = 0
     var dateChanged = false
     
     func month() -> Int {
@@ -122,7 +122,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             dayNumber = dayNum()
         }
         if (dayNumber != 9 && dayNumber != 0) {
-            p1 = classes[dayNumber - 1][0]
+            p1 = classes[dayNumber - 1][0] + String(p1Time)
             p2 = classes[dayNumber - 1][1]
             p3 = classes[dayNumber - 1][2]
             p4 = classes[dayNumber - 1][3]
@@ -186,7 +186,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dateChanged = false
         update()
         drawSchedule()
+        drawDay()
         dateDisplay.text = getDate()
+        closeKeyboard()
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -238,15 +240,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.performSegueWithIdentifier("setup", sender: nil)
         } else {
             buildSchedule()
-            buildRooms()
             update()
             drawSchedule()
             drawDay()
-            drawRooms()
             p1Room.text = ""
             p2Room.text = ""
             p3Room.text = ""
             p4Room.text = ""
+        }
+        if (preferences.boolForKey("roomsAdded")) {
+            buildRooms()
+            drawRooms()
         }
         // style view
         navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0)
