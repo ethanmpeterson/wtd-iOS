@@ -109,6 +109,7 @@
 					530013151D5A4ABD007D88BB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 4RB8Z4QSQ5;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -272,6 +273,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.petetech.What-s-The-Day-iOS";
 				PRODUCT_NAME = WhatsTheDayiOS;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -287,6 +289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.petetech.What-s-The-Day-iOS";
 				PRODUCT_NAME = WhatsTheDayiOS;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

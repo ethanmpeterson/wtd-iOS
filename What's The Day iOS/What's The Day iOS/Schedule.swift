@@ -31,21 +31,21 @@ class Schedule : NSObject {
     override init() { // constructor for main schedule
     }
     
-    func enterDayOne(p1Class : String, p2Class : String, p3Class : String, p4Class : String) {
+    func enterDayOne(_ p1Class : String, p2Class : String, p3Class : String, p4Class : String) {
         d1p1 = p1Class
         d1p2 = p2Class
         d1p3 = p3Class
         d1p4 = p4Class
     }
     
-    func enterDayTwo(p1Class : String, p2Class : String, p3Class : String, p4Class : String) {
+    func enterDayTwo(_ p1Class : String, p2Class : String, p3Class : String, p4Class : String) {
         d2p1 = p1Class
         d2p2 = p2Class
         d2p3 = p3Class
         d2p4 = p4Class
     }
     
-    func make(s : Schedule) -> Schedule {
+    func make(_ s : Schedule) -> Schedule {
         return s
     }
 }

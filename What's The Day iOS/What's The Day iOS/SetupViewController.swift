@@ -10,8 +10,8 @@ import UIKit
 
 class SetupViewController: UIViewController, UITextViewDelegate {
     
-    let screenSize : CGRect = UIScreen.mainScreen().bounds
-    let preferences = NSUserDefaults.standardUserDefaults()
+    let screenSize : CGRect = UIScreen.main.bounds
+    let preferences = UserDefaults.standard
     var schedule : Schedule!
     
     @IBOutlet var nextButton: UIButton!
@@ -29,11 +29,11 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeKeyboard()
     }
     
-    func saveSchedule(dayNumber : Int) {
+    func saveSchedule(_ dayNumber : Int) {
         if (dayNumber == 1) {
             schedule.enterDayOne(p1Input.text!, p2Class: p2Input.text!, p3Class: p3Input.text!, p4Class: p4Input.text!)
             preferences.setValue(p1Input.text, forKey: "D1P1")
@@ -55,14 +55,14 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    @IBAction func nextPressed(sender: UIButton) {
+    @IBAction func nextPressed(_ sender: UIButton) {
         timesPressed += 1
         closeKeyboard()
         print(p1Input.text)
         if (timesPressed == 1) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 setupLabel.text = "Enter Your Day 2 Classes Below:"
-                nextButton.setTitle("Save and Finish", forState: UIControlState.Normal)
+                nextButton.setTitle("Save and Finish", for: UIControlState())
                 saveSchedule(1)
                 p1Input.text = ""
                 p2Input.text = ""
@@ -74,8 +74,8 @@ class SetupViewController: UIViewController, UITextViewDelegate {
         } else if (timesPressed == 2) {
             if (p1Input.text != "" && p2Input.text != "" && p3Input.text != "" && p4Input.text != "") {
                 saveSchedule(2)
-                preferences.setBool(true, forKey: "setupComplete")
-                self.performSegueWithIdentifier("schedule", sender: nil)
+                preferences.set(true, forKey: "setupComplete")
+                self.performSegue(withIdentifier: "schedule", sender: nil)
             } else {
                 timesPressed -= 1 // reduce timespressed by 1 to ensure it does not exceed the value being checked for of two
             }
@@ -83,17 +83,17 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
     
     
-    override func viewWillAppear(animated: Bool) {
-        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-        if (preferences.boolForKey("setupComplete") == false) {
-            let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil) // removes back button
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UIApplication.shared.statusBarStyle = .lightContent
+        if (preferences.bool(forKey: "setupComplete") == false) {
+            let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: navigationController, action: nil) // removes back button
             navigationItem.leftBarButtonItem = backButton
         }
     }
@@ -102,13 +102,13 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         schedule = Schedule()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SetupViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SetupViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SetupViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // style next button
         nextButton.layer.cornerRadius = 15
         nextButton.layer.borderWidth = 1
-        nextButton.layer.borderColor = UIColor.blackColor().CGColor
+        nextButton.layer.borderColor = UIColor.black.cgColor
         // style naviagation bar to use yellow color of RSGC
         navigationController!.navigationBar.barTintColor = UIColor(red: 220.0/255, green: 184.0/255, blue: 72.0/255, alpha: 100.0/100.0)
     }
@@ -119,10 +119,10 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+    func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if (screenSize.height != 736 && screenSize.width != 414) {
-                if (p3Input.editing || p4Input.editing) {
+                if (p3Input.isEditing || p4Input.isEditing) {
                     if view.frame.origin.y == 0 {
                         self.view.frame.origin.y -= keyboardSize.height
                     }
@@ -131,8 +131,8 @@ class SetupViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+    func keyboardWillHide(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y != 0 {
                 self.view.frame.origin.y += keyboardSize.height
             }
