@@ -133,9 +133,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             [preferences.string(forKey: "D2P1")!, preferences.string(forKey: "D2P2")!, preferences.string(forKey: "D2P3")!, preferences.string(forKey: "D2P4")!],
             
-            [preferences.string(forKey: "D1P4")!, preferences.string(forKey: "D1P2")!, preferences.string(forKey: "D1P3")!, preferences.string(forKey: "D1P1")!],
+            [preferences.string(forKey: "D1P2")!, preferences.string(forKey: "D1P3")!, preferences.string(forKey: "D1P4")!, preferences.string(forKey: "D1P1")!],
             
-            [preferences.string(forKey: "D2P4")!, preferences.string(forKey: "D2P2")!, preferences.string(forKey: "D2P3")!, preferences.string(forKey: "D2P1")!],
+            [preferences.string(forKey: "D2P2")!, preferences.string(forKey: "D2P3")!, preferences.string(forKey: "D2P4")!, preferences.string(forKey: "D2P1")!],
             
             [preferences.string(forKey: "D1P3")!, preferences.string(forKey: "D1P4")!, preferences.string(forKey: "D1P1")!, preferences.string(forKey: "D1P2")!],
             
