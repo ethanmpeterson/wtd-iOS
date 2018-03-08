@@ -132,9 +132,10 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if view.frame.origin.y != 0 {
-                self.view.frame.origin.y += keyboardSize.height
+                //self.view.frame.origin.y += keyboardSize.height
+                self.view.frame.origin.y = 0
             }
         }
     }
