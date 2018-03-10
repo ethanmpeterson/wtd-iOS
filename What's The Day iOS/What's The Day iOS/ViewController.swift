@@ -56,10 +56,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let preferences = UserDefaults.standard
     
     @IBOutlet var todayButton: UIButton!
-    @IBOutlet var p1Room: UILabel!
-    @IBOutlet var p2Room: UILabel!
-    @IBOutlet var p3Room: UILabel!
-    @IBOutlet var p4Room: UILabel!
     @IBOutlet var p1Text: UILabel!
     @IBOutlet var p2Text: UILabel!
     @IBOutlet var p3Text: UILabel!
@@ -205,10 +201,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func drawRooms() {
-        p1Room.text = p1R
-        p2Room.text = p2R
-        p3Room.text = p3R
-        p4Room.text = p4R
+
     }
     
     func labelSetup() {
@@ -285,10 +278,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             update()
             drawSchedule()
             drawDay()
-            p1Room.text = ""
-            p2Room.text = ""
-            p3Room.text = ""
-            p4Room.text = ""
         }
         if (preferences.bool(forKey: "roomsAdded")) {
             buildRooms()
