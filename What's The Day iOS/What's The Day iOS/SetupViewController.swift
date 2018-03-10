@@ -96,6 +96,26 @@ class SetupViewController: UIViewController, UITextViewDelegate {
             let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: navigationController, action: nil) // removes back button
             navigationItem.leftBarButtonItem = backButton
         }
+        // Handle iPad scaling issues
+        if (screenSize.width == 320.0 && screenSize.height == 480.0) {
+            for constraint in self.view.constraints {
+                if (constraint.identifier == "c0") {
+                   constraint.constant = 10
+                }
+                if (constraint.identifier == "c1") {
+                    constraint.constant = 10
+                }
+                if (constraint.identifier == "c2") {
+                    constraint.constant = 40
+                }
+                if (constraint.identifier == "c3") {
+                    constraint.constant = 70
+                }
+                if (constraint.identifier == "c4") {
+                    constraint.constant = 40
+                }
+            }
+        }
     }
     
     
@@ -134,7 +154,7 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     func keyboardWillHide(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y != 0 {
-                self.view.frame.origin.y += keyboardSize.height
+                self.view.frame.origin.y = 0 //+= keyboardSize.height
             }
         }
     }
