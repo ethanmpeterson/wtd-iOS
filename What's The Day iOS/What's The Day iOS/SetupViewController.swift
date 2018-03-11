@@ -56,6 +56,8 @@ class SetupViewController: UIViewController, UITextViewDelegate {
     
     
     @IBAction func nextPressed(_ sender: UIButton) {
+        print("WIDTH \(screenSize.width)")
+        print("HEIGHT \(screenSize.height)")
         timesPressed += 1
         closeKeyboard()
         print(p1Input.text)
@@ -144,7 +146,12 @@ class SetupViewController: UIViewController, UITextViewDelegate {
             if (screenSize.height != 736 && screenSize.width != 414) {
                 if (p3Input.isEditing || p4Input.isEditing) {
                     if view.frame.origin.y == 0 {
-                        self.view.frame.origin.y -= keyboardSize.height
+                        if (screenSize.width == 375 && screenSize.height == 812) { // fix iphone x origin issue
+                            self.view.frame.origin.y -= 233
+                        } else {
+                            self.view.frame.origin.y -= keyboardSize.height
+                            //print(keyboardSize.height)
+                        }
                     }
                 }
             }
